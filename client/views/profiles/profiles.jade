@@ -1,0 +1,32 @@
+h3 PROFILE
+.row
+  .col-xs-3.col-xs-offset-3
+    form(name='profileInfoForm')
+      .form-group
+        label(for='name') Name
+        input.form-control(type='text' ng-model='profile.name')
+      .form-group
+        label(for='age') Age
+        input.form-control(type='number' ng-model='profile.age')
+      .form-group
+        label(for='gender') Gender
+        select.form-control(ng-model='profile.gender')
+          option female
+          option male
+      .form-group
+        label(for='address')
+        textarea.form-control(rows='3' name='address' ng-model='profile.address')
+      .form-group
+        label(for='photo') Photo
+        input.form-control(type='url' ng-model='profile.photo')
+      .form-group
+        button.btn.btn-info(ng-click='updateProfile()') Update Profile
+  .col-xs-3.center-text
+    h1 Name: {{profile.name}}
+    h2 Age: {{profile.age}}
+    h3 Gender: {{profile.gender}}
+    h3 Address:
+    pre
+      p(ng-repeat='addressLine in addressArray') {{addressLine}}
+    img.img-responsive(ng-src='{{profile.photo}}')
+      
