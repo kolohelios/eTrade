@@ -11,7 +11,7 @@ angular.module('eTrade')
   }
 
   Profile.init = function(){
-    fbProfile = $rootScope.fbRoot.child('user/' + $rootScope.displayName);
+    fbProfile = $rootScope.fbRoot.child('user/' + $rootScope.displayName + '/profile/');
     afProfile = $firebaseObject(fbProfile);
     return afProfile;
   };

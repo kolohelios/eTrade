@@ -1,6 +1,17 @@
-h3 PROFILE
+h3 PROFILE AND BALANCE
 .row
-  .col-xs-3.col-xs-offset-3
+  .col-xs-4.col-xs-offset-2
+    h2 Balance: {{balance | currency}}
+  .col-xs-4
+    form(name='balanceForm')
+      .form-group
+        label(for='deposit')
+        input.form-control(type='number' name='deposit' ng-model='depositAmt')
+      .form-group
+        button.form-control(ng-click='makeDeposit(depositAmt)') Make Deposit
+hr
+.row
+  .col-xs-3
     form(name='profileInfoForm')
       .form-group
         label(for='name') Name
@@ -13,6 +24,7 @@ h3 PROFILE
         select.form-control(ng-model='profile.gender')
           option female
           option male
+  .col-xs-3
       .form-group
         label(for='address')
         textarea.form-control(rows='3' name='address' ng-model='profile.address')
@@ -28,5 +40,5 @@ h3 PROFILE
     h3 Address:
     pre
       p(ng-repeat='addressLine in addressArray') {{addressLine}}
+  .col-xs-3
     img.img-responsive(ng-src='{{profile.photo}}')
-      
