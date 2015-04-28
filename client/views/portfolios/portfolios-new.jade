@@ -1,1 +1,10 @@
 h3 NEW PORTFOLIO
+
+.row
+  .col-xs-6.col-offset-xs-3
+    form(name='addPortfolioForm')
+      .form-group
+        label(for='newportfolio') New Portfolio Name
+        input.form-control(name='newportfolio' ng-model='newPortfolioName')
+      .form-group
+        button.btn.btn-info(ng-click='createNewPortfolio(newPortfolioName)') Create New Portfolio
